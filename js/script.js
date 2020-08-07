@@ -4,8 +4,8 @@ const addExpenses = 'Квартплата, интернет, автомобил�
 const deposit = true;
 const mission = 1000000;
 const period = 12;
-let budgetDay;
-budgetDay = money / 30;
+const budgetDay = money / 30;
+
 
 console.log(typeof money, typeof income, typeof deposit);
 
