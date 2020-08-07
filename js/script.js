@@ -1,23 +1,18 @@
-let money = 30000;
-let income = 'фриланс';
-let addExpenses = 'Квартплата, интернет, автомобиль, кафе';
-let deposit = true;
-let mission = 1000000;
-let period = 12;
+const money = 30000;
+const income = 'фриланс';
+const addExpenses = 'Квартплата, интернет, автомобиль, кафе';
+const deposit = true;
+const mission = 1000000;
+const period = 12;
+let budgetDay;
+budgetDay = money / 30;
 
-
-console.log(typeof money);
-console.log(typeof income);
-console.log(typeof deposit);
+console.log(typeof money, typeof income, typeof deposit);
 
 console.log(addExpenses.length);
 console.log('Период равен', period + ' месяцев');
 console.log('Цель заработать', mission + ' рублей');
 
-addExpenses = addExpenses.toLowerCase();
-addExpenses = addExpenses.split(', ');
-console.log(addExpenses);
+console.log(addExpenses.toLowerCase().split(', '));
 
-let budgetDay;
-budgetDay = money/30;
 console.log(budgetDay);
