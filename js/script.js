@@ -31,13 +31,11 @@ const budgetDay = accumulatedMonth / 30;
 
 console.log(addExpenses.toLowerCase().split(', '));
 
-
 function getTargetMonth() {
 	return mission / accumulatedMonth;
 }
 console.log('Цель будет достигнута за:', Math.ceil(getTargetMonth()) + ' месяцев');
 console.log('Бюджет на день', Math.floor(budgetDay));
-
 
 function getStatusIncome() {
 	if (budgetDay >= 1200) {
