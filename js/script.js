@@ -1,18 +1,18 @@
 'use strict';
 
-let isNumber = function(n) {
+const isNumber = function(n) {
 	return !isNaN(parseFloat(n)) && isFinite(n);
 };
 
 let money;
-let start = function () {
+const start = function () {
 	do {
 		money = prompt('Ваш месячный доход?');
 	} while (!isNumber(money));
 };
 start();
 
-let appData = {
+const appData = {
 	income: {},
 	addIncome: [],
 	expenses: {},
@@ -28,7 +28,6 @@ let appData = {
 		for (let key in appData.expenses) {
 			appData.expensesMonth += appData.expenses[key];
 		}
-		return appData.expensesMonth;
 	},
 	getBudget: function() {
 		appData.budgetMonth = appData.budget - appData.expensesMonth;
@@ -55,8 +54,9 @@ let appData = {
 		for (let i = 0; i < 2; i++) {
 			let key = prompt('Введите обязательную статью расходов?');
 			do {
-				appData.expenses[key] = +prompt('Во сколько это обойдется?');
+				appData.expenses[key] = prompt('Во сколько это обойдется?');
 			} while (!isNumber(appData.expenses[key]));
+			appData.expenses[key] *= 1;
 		}
 	}
 };
@@ -73,3 +73,8 @@ if (appData.getTargetMonth() >= 0) {
 	console.log('Цель не будет достигнута');
 }
 console.log(appData.getStatusIncome());
+console.log('Наша программа включает в себя данные:');
+for (let key in appData) {
+	console.log('Ключ: ' + key + ' Значение: ' + appData[key]);
+}
+console.log(appData.expenses);
