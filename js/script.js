@@ -77,4 +77,3 @@ console.log('Наша программа включает в себя данны
 for (let key in appData) {
 	console.log('Ключ: ' + key + ' Значение: ' + appData[key]);
 }
-console.log(appData.expenses);
