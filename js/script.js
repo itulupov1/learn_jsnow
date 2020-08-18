@@ -122,6 +122,6 @@ if ((appData.addExpenses).length > 0) {
 		addExpenses += (appData.addExpenses[key])[0].toUpperCase() + (appData.addExpenses[key]).slice(1) + ', ';
 		addExpenses.split(', ').toString();
 	}
-	console.log(addExpenses.substring(0, addExpenses.length - 2));
+	console.log('Возможные расходы: ' + addExpenses.substring(0, addExpenses.length - 2));
 }
 
