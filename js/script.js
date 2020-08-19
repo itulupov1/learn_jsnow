@@ -125,3 +125,29 @@ if ((appData.addExpenses).length > 0) {
 	console.log('Возможные расходы: ' + addExpenses.substring(0, addExpenses.length - 2));
 }
 
+
+const calculate = document.getElementById('start'); // Кнопка рассчитать 
+const addIncome = document.getElementsByTagName('button')[0]; // 1 plus
+const addExpenses = document.getElementsByTagName('button')[1]; // 2 plus
+const depositCheckbox = document.querySelector('#deposit-check'); // checkbox 
+const addIncomeItem = document.querySelectorAll('.additional_income-item'); // инпуты возможного дохода
+
+const budgetMonthValue = document.getElementsByClassName('budget_month-value');
+const budgetDayValue = document.getElementsByClassName('budget_day-value');
+const expensesMonthValue = document.getElementsByClassName('expenses_month-value');
+const addIncomeMonthValue = document.getElementsByClassName('additional_income-value');
+const addExpensesValue = document.getElementsByClassName('additional_expenses-value');
+const incomePeriodValue = document.getElementsByClassName('income_period-value');
+const targetMonthValue = document.getElementsByClassName('target_month-value');
+
+const salaryAmount = document.querySelector('.salary-amount'); // месячный доход
+const incomeTitle = document.querySelector('.income-title'); // имя доп дохода
+const incomeAmount = document.querySelector('.income-amount'); // сумма доп дохода
+const expensesTitle = document.querySelector('.expenses-title'); // имя обязательного расхода
+const expensesAmount = document.querySelector('.expenses-amount'); // сумма обязательного расхода
+const addExpensesItem = document.querySelector('.additional_expenses-item'); // название возможных расходов
+const target = document.querySelector('.target-amount'); // сумма цели
+const range = document.querySelector('.period-select'); // период расчета
+const depositBankSelect = document.querySelector('.deposit-bank'); // выбор банка, в котором депозит
+const depositAmount = document.querySelector('.deposit-amount'); // сумма депозита
+const depositPercent = document.querySelector('.deposit-percent'); // процент депозита
