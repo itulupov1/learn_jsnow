@@ -141,9 +141,9 @@ const incomePeriodValue = document.getElementsByClassName('income_period-value')
 const targetMonthValue = document.getElementsByClassName('target_month-value');
 
 const salaryAmount = document.querySelector('.salary-amount'); // месячный доход
-const incomeTitle = document.querySelector('.income-title'); // имя доп дохода
+const incomeTitle = document.querySelector('input.income-title'); // имя доп дохода
 const incomeAmount = document.querySelector('.income-amount'); // сумма доп дохода
-const expensesTitle = document.querySelector('.expenses-title'); // имя обязательного расхода
+const expensesTitle = document.querySelector('input.expenses-title'); // имя обязательного расхода
 const expensesAmount = document.querySelector('.expenses-amount'); // сумма обязательного расхода
 const addExpensesItem = document.querySelector('.additional_expenses-item'); // название возможных расходов
 const target = document.querySelector('.target-amount'); // сумма цели
