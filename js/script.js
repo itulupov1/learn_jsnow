@@ -70,7 +70,7 @@ const appData = {
 		});
 	},
 	addExpensesBlock: function () {
-		let cloneExpensesItem = expensesItems[0].cloneNode(true);
+		const cloneExpensesItem = expensesItems[0].cloneNode(true);
 		expensesItems[0].parentNode.insertBefore(cloneExpensesItem, addExpenses);
 		expensesItems = document.querySelectorAll('.expenses-items');
 		if (expensesItems.length == 3) {
@@ -78,7 +78,7 @@ const appData = {
 		}
 	},
 	addIncomeBlock: function(){
-		let cloneIncomeItem = incomeItems[0].cloneNode(true);
+		const cloneIncomeItem = incomeItems[0].cloneNode(true);
 		incomeItems[0].parentNode.insertBefore(cloneIncomeItem, addIncome);
 		incomeItems = document.querySelectorAll('.income-items');
 		if (incomeItems.length == 3) {
@@ -110,8 +110,8 @@ const appData = {
 	},
 	getExpenses: function() {
 		expensesItems.forEach(function(item){
-			let itemExpenses = item.querySelector('.expenses-title').value;
-			let cashExpenses = item.querySelector('.expenses-amount').value;
+			const itemExpenses = item.querySelector('.expenses-title').value;
+			const cashExpenses = item.querySelector('.expenses-amount').value;
 			if (itemExpenses !== '' && cashExpenses !== ''){
 				appData.expenses[itemExpenses] = cashExpenses;
 			}
@@ -119,8 +119,8 @@ const appData = {
 	},
 	getIncome: function(){
 		incomeItems.forEach(function(item){
-			let itemIncome = item.querySelector('.income-title').value;
-			let cashIncome = item.querySelector('.income-amount').value;
+			const itemIncome = item.querySelector('.income-title').value;
+			const cashIncome = item.querySelector('.income-amount').value;
 			if (itemIncome !== '' && cashIncome !== '') {
 				appData.income[itemIncome] = cashIncome;
 			}
@@ -131,7 +131,7 @@ const appData = {
 		}
 	},
 	getAddExpenses: function() {
-		let addExpenses = addExpensesItem.value.split(',');
+		const addExpenses = addExpensesItem.value.split(',');
 		addExpenses.forEach(function(item) {
 			item = item.trim();
 			if (item !== ''){
@@ -141,7 +141,7 @@ const appData = {
 	},
 	getAddIncome: function() {
 		addIncomeItem.forEach(function(item) {
-			let itemValue = item.value.trim();
+			const itemValue = item.value.trim();
 			if (itemValue !== ''){
 				appData.addIncome.push(itemValue);
 			}
