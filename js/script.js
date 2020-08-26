@@ -128,7 +128,7 @@ const appData = {
 		const cloneExpensesItem = expensesItems[0].cloneNode(true);
 		expensesItems[0].parentNode.insertBefore(cloneExpensesItem, addExpenses);
 		expensesItems = document.querySelectorAll('.expenses-items');
-		if (expensesItems.length == 3) {
+		if (expensesItems.length === 3) {
 			addExpenses.style.display = 'none';
 		}
 	},
@@ -136,7 +136,7 @@ const appData = {
 		const cloneIncomeItem = incomeItems[0].cloneNode(true);
 		incomeItems[0].parentNode.insertBefore(cloneIncomeItem, addIncome);
 		incomeItems = document.querySelectorAll('.income-items');
-		if (incomeItems.length == 3) {
+		if (incomeItems.length === 3) {
 			addIncome.style.display = 'none';
 		}
 	},
