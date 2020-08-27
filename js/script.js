@@ -124,9 +124,10 @@ const appData = {
 		addIncomeMonthValue.value = this.addIncome.join(', ');
 		targetMonthValue.value = Math.ceil(this.getTargetMonth());
 		incomePeriodValue.value = this.calcSavedMoney();
-		range.addEventListener('input', function(){
-			incomePeriodValue.value = appData.calcSavedMoney();
-		});
+	},
+	rangeEvent: function(){
+		incomePeriodValue.value = this.calcSavedMoney();
+		periodAmount.textContent = range.value;
 	},
 	addExpensesBlock: function () {
 		const cloneExpensesItem = expensesItems[0].cloneNode(true);
@@ -174,7 +175,7 @@ const appData = {
 			if (itemExpenses !== '' && cashExpenses !== ''){
 				this.expenses[itemExpenses] = cashExpenses;
 			}
-		}, appData);
+		}, this);
 	},
 	getIncome: function(){
 		incomeItems.forEach(function(item){
@@ -183,7 +184,7 @@ const appData = {
 			if (itemIncome !== '' && cashIncome !== '') {
 				this.income[itemIncome] = cashIncome;
 			}
-		}, appData);
+		}, this);
 
 		for (let key in this.income){
 			this.incomeMonth += +this.income[key];
@@ -196,7 +197,7 @@ const appData = {
 			if (item !== ''){
 				this.addExpenses.push(item);
 			}
-		}, appData);
+		}, this);
 	},
 	getAddIncome: function() {
 		addIncomeItem.forEach(function(item){
@@ -204,7 +205,7 @@ const appData = {
 			if (itemValue !== ''){
 				this.addIncome.push(itemValue);
 			}
-		}, appData);
+		}, this);
 	},
 	getInfoDeposit: function() {
 		this.deposit = confirm('Есть ли у вас депозит в банке?');
@@ -232,8 +233,5 @@ addExpenses.addEventListener('click', appData.addExpensesBlock);
 addIncome.addEventListener('click', appData.addIncomeBlock);
 salaryAmount.addEventListener('keyup', appData.checked);
 cancel.addEventListener('click', appData.reset.bind(appData));
-
-range.addEventListener('input', function(){
-	periodAmount.textContent = range.value;
-});
+range.addEventListener('input', appData.rangeEvent.bind(appData));
 
