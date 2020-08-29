@@ -231,12 +231,12 @@ class AppData {
 		return this.budgetMonth * range.value;
 	}
 	eventListeners() {
-		calculate.addEventListener('click', this.start.bind(appData));
+		calculate.addEventListener('click', this.start.bind(this));
 		addExpenses.addEventListener('click', this.addExpensesBlock);
 		addIncome.addEventListener('click', this.addIncomeBlock);
 		salaryAmount.addEventListener('keyup', this.checked);
-		cancel.addEventListener('click', this.reset.bind(appData));
-		range.addEventListener('input', this.rangeEvent.bind(appData));
+		cancel.addEventListener('click', this.reset.bind(this));
+		range.addEventListener('input', this.rangeEvent.bind(this));
 	}
 }
 
