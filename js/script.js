@@ -98,7 +98,7 @@ class AppData {
 
 		const itemClear = item => {
 			const startStr = item.className;
-			let items = document.querySelectorAll(`.${startStr}`);
+			const items = document.querySelectorAll(`.${startStr}`);
 			for (let i = 1; i < items.length; i++) {
 				if (items[i].parentNode) {
 					items[i].parentNode.removeChild(items[i]);
