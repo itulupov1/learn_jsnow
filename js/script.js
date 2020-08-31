@@ -123,6 +123,7 @@ class AppData {
 		depositPercent.style.display = 'none';
 		depositBankSelect.style.display = 'none';
 		depositAmount.style.display = 'none';
+		depositBankSelect.value = '';
 	}
 	showResult() {
 		budgetMonthValue.value = this.budgetMonth;
