@@ -57,10 +57,7 @@ class AppData {
 			calculate.setAttribute('disabled', true);
 			return;
 		}
-		// if (depositPercent.value === '') {
-		// 	calculate.setAttribute('disabled', true);
-		// 	return;
-		// }
+
 		addExpenses.setAttribute('disabled', true);
 		addIncome.setAttribute('disabled', true);
 
