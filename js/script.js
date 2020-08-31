@@ -30,6 +30,7 @@ let expensesItems = document.querySelectorAll('.expenses-items');
 let incomeItems = document.querySelectorAll('.income-items');
 const DataInput = document.querySelectorAll('.data input[type = text]');
 const resultInput = document.querySelectorAll('.result input[type = text]');
+const valueSelect = depositBankSelect.value;
 
 class AppData {
 	constructor() {
@@ -56,10 +57,10 @@ class AppData {
 			calculate.setAttribute('disabled', true);
 			return;
 		}
-		if (depositPercent.value === '') {
-			calculate.setAttribute('disabled', true);
-			return;
-		}
+		// if (depositPercent.value === '') {
+		// 	calculate.setAttribute('disabled', true);
+		// 	return;
+		// }
 		addExpenses.setAttribute('disabled', true);
 		addIncome.setAttribute('disabled', true);
 
@@ -233,16 +234,22 @@ class AppData {
 		const valueSelect = depositBankSelect.value;
 		if (valueSelect === 'other') {
 			depositPercent.style.display = 'inline-block';
-			depositPercent.addEventListener('change', this.checkedPercent);
+			depositPercent.addEventListener('keyup', this.checkedPercent);
 		} else {
 			depositPercent.value = valueSelect;
-			depositPercent.removeEventListener('change', this.checkedPercent);
+			depositPercent.removeEventListener('keyup', this.checkedPercent);
 			depositPercent.style.display = 'none';
+			depositAmount.addEventListener('keyup', function () {
+				if (depositAmount.value) {
+					calculate.removeAttribute('disabled');
+				}
+			});
 		}
 	}
 
 	depositHandler() {
 		if (depositCheckbox.checked) {
+			calculate.setAttribute('disabled', true);
 			depositBankSelect.style.display = 'inline-block';
 			depositAmount.style.display = 'inline-block';
 			this.deposit = true;
@@ -263,9 +270,11 @@ class AppData {
 		if (depositPercent.value < 0 || depositPercent.value > 100 || depositPercent.value === '' || isNaN(depositPercent.value) === true) {
 			alert("Введите корректное значение в поле проценты");
 			calculate.setAttribute('disabled', true);
+			depositPercent.value = '';
 		} else {
 			calculate.removeAttribute('disabled');
 		}
+
 	}
 
 	eventListeners() {
