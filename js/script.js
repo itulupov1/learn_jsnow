@@ -65,6 +65,8 @@ class AppData {
 		allInput.forEach(item => item.setAttribute('disabled', true));
 		calculate.style.display = 'none';
 		cancel.style.display = 'block';
+		depositCheckbox.setAttribute('disabled', true);
+		depositBankSelect.setAttribute('disabled', true);
 
 		this.budget = +salaryAmount.value;
 
@@ -98,6 +100,8 @@ class AppData {
 			periodAmount.innerHTML = range.value;
 		});
 		resultInput.forEach(item => item.value = '');
+		depositCheckbox.removeAttribute('disabled');
+		depositBankSelect.removeAttribute('disabled');
 
 		const itemClear = item => {
 			const startStr = item.className;
@@ -232,15 +236,21 @@ class AppData {
 		if (valueSelect === 'other') {
 			depositPercent.style.display = 'inline-block';
 			depositPercent.addEventListener('keyup', this.checkedPercent);
+		} else if (valueSelect === '') {
+			calculate.setAttribute('disabled', true);
 		} else {
 			depositPercent.value = valueSelect;
 			depositPercent.removeEventListener('keyup', this.checkedPercent);
 			depositPercent.style.display = 'none';
-			depositAmount.addEventListener('keyup', function () {
-				if (depositAmount.value) {
-					calculate.removeAttribute('disabled');
-				}
-			});
+			if (depositAmount.value) {
+				calculate.removeAttribute('disabled');
+			} else {
+				depositAmount.addEventListener('keyup', function () {
+					if (depositAmount.value) {
+						calculate.removeAttribute('disabled');
+					}
+				});
+			}
 		}
 	}
 
